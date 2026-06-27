@@ -1,7 +1,5 @@
 -- ============================================================
 -- Filters to delivered orders with known delivery date
--- Standardizes timestamps for downstream date arithmetic
--- Adds month grain column for time-series aggregation
 -- ============================================================
 
 CREATE OR REPLACE VIEW stg_orders AS
