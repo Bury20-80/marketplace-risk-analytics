@@ -1,7 +1,6 @@
 -- ============================================================
 -- Preserves the order → product → seller relationship
 -- Calculates GMV at single line-item level (price + freight)
--- Prepares data for primary seller assignment downstream
 -- ============================================================
 
 CREATE OR REPLACE VIEW stg_order_items AS
