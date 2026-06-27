@@ -1,11 +1,6 @@
 -- ============================================================
--- OLIST E-COMMERCE — PHASE 1: DATA AUDIT & BUSINESS EXPLORATION
--- Run AFTER all SQL layers are built (staging → intermediate → marts)
--- Each query answers a specific business question
--- ============================================================
 -- QUERY 1: DATA AUDIT
 -- Business question: "Is our data complete and trustworthy?"
--- Why it matters: You never skip this in a real job.
 -- Shows data quality 
 -- ============================================================
 
@@ -74,7 +69,6 @@ FROM sellers;
 -- ============================================================
 -- QUERY 2: NULL AUDIT ON KEY COLUMNS
 -- Business question: "What data gaps will affect our analysis?"
--- Note: Document NULL counts before touching any analysis.
 -- This is basically Power Query
 -- ============================================================
 
@@ -107,9 +101,7 @@ FROM products;
 
 -- ============================================================
 -- QUERY 3: Risk tier threshold analysis
--- Validates that thresholds in mart_seller_risk are grounded
--- in the actual distribution of seller performance metrics
--- Run against int_seller_metrics (delivered_orders >= 10)
+-- Validates that thresholds in mart_seller_risk are grounded in the actual distribution of seller performance metrics
 -- ============================================================
 
 SELECT
