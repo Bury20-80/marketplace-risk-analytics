@@ -1,7 +1,5 @@
 -- ============================================================
 -- Standardizes seller dimension
--- Limits columns to those used in analysis
--- Reserved for future geographic enrichment
 -- ============================================================
 
 CREATE OR REPLACE VIEW stg_sellers AS
