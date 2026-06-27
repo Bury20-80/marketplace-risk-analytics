@@ -168,7 +168,7 @@ WHERE delivered_orders >= 10;
 
 **Review score thresholds:**
 - `HIGH < 3.0` — bottom tail, clear underperformers well below P25
-- `MEDIUM < 3.8` — below P25, weak but not critical
+- `MEDIUM < 3.8` — below P25, conservative floor for underperforming sellers
 
 **Late delivery thresholds:**
 - `MEDIUM > 0.10` — above P75, elevated vs peers
