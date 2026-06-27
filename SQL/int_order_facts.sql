@@ -2,8 +2,6 @@
 -- Builds a single analytical record per delivered order
 -- Assigns primary seller based on highest revenue contribution
 -- Category taken from seller's highest revenue product
--- Tiebreaker on seller_id (alphabetical) — deterministic
--- but arbitrary; affects negligible number of orders
 -- ============================================================
 
 CREATE OR REPLACE VIEW int_order_facts AS
