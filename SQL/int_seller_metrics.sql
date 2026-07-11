@@ -1,11 +1,8 @@
 -- ============================================================
 -- Aggregates seller-level operational performance
--- Combines order volume, cancellations, delivery quality,
--- customer satisfaction and revenue metrics
--- One row per seller
--- Note: all_orders uses raw orders table to capture all
--- statuses including canceled — stg_orders filters to
--- delivered only and would exclude cancellations
+-- Combines order volume, cancellations, delivery quality, customer satisfaction and revenue metrics
+-- Note: all_orders uses raw orders table to capture all statuses including canceled. 
+-- stg_orders filters to delivered only and would exclude cancellations
 -- ============================================================
 
 CREATE OR REPLACE VIEW int_seller_metrics AS
