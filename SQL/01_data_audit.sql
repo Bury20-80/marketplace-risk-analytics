@@ -101,7 +101,7 @@ FROM products;
 
 -- ============================================================
 -- QUERY 3: Risk tier threshold analysis
--- Validates that thresholds in mart_seller_risk are grounded in the actual distribution of seller performance metrics
+-- distribution of seller performance metrics for mart_seller_risk 
 -- ============================================================
 
 SELECT
