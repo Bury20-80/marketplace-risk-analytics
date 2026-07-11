@@ -9,7 +9,7 @@
 
 On a multi-seller marketplace, a bad seller ships under the platform brand. The customer leaves a 1-star review. The platform absorbs the damage.
 
-This project builds a seller risk scoring system on top of the Olist public dataset — identifying which sellers pose operational risk, how much value flows through them, and which product categories are most exposed.
+This project builds a seller risk scoring system on top of the Olist public dataset, identifying which sellers pose operational risk, how much value flows through them, and which product categories are most exposed.
 
 ---
 
@@ -33,13 +33,13 @@ This project builds a seller risk scoring system on top of the Olist public data
 **The Pareto rule holds and risk doesn't follow value.**  
 The top 17.8% of sellers (~550 of 3,095) generate 80% of platform value. The top 4.3% (~132 sellers) generate 50%. That's a highly concentrated value base.
 
-But the 13 HIGH-risk sellers are not in that top group. They average R$ 12,641 each — comparable to LOW-risk sellers. The larger threat sits in MEDIUM: 134 MEDIUM-risk sellers are inside the top 20% of the Pareto curve, collectively holding R$ 2.45M in value. The two highest-value sellers on the platform (R$ 245K and R$ 239K each) are both MEDIUM.
+But the 13 HIGH-risk sellers are not in that top group. They average R$ 12,641 each, comparable to LOW-risk sellers. The larger threat sits in MEDIUM: 134 MEDIUM-risk sellers are inside the top 20% of the Pareto curve, collectively holding R$ 2.45M in value. The two highest-value sellers on the platform (R$ 245K and R$ 239K each) are both MEDIUM.
 
 **The category with the most exposure is `auto`.**  
-6.83% of auto category value flows through HIGH-risk sellers — the highest of any named category. `watches_gifts` (2.0%) and `sports_leisure` (1.9%) follow.
+6.83% of auto category value flows through HIGH-risk sellers, the highest of any named category. `watches_gifts` (2.0%) and `sports_leisure` (1.9%) follow.
 
-**Late delivery and low reviews move together — but not perfectly.**  
-Spearman r = −0.46 confirms the relationship is real and consistent. Sellers with 0–5% late deliveries average 4.33 stars; sellers above 30% average 3.25. But the correlation is moderate, not deterministic — a handful of sellers with 20%+ late rates still hold reviews above 4.0. Those are not intervention candidates.
+**Late delivery and low reviews move together, but not perfectly!**  
+Spearman r = −0.46 confirms the relationship is real and consistent. Sellers with 0–5% late deliveries average 4.33 stars; sellers above 30% average 3.25. But the correlation is moderate, not deterministic. A handful of sellers with 20%+ late rates still hold reviews above 4.0. Those are not intervention candidates.
 
 ---
 
@@ -99,7 +99,7 @@ SELECT order_id, seller_id FROM seller_rank WHERE seller_rn = 1
 
 ### WATCH as a guard clause
 
-Sellers with fewer than 10 delivered orders get WATCH — evaluated before HIGH or MEDIUM. A 1-star average on 3 orders is noise. Flagging these sellers HIGH would pollute the tier with unreliable data.
+Sellers with fewer than 10 delivered orders get WATCH, which is evaluated before HIGH or MEDIUM. A 1-star average on 3 orders is noise. Flagging these sellers HIGH would pollute the tier with unreliable data.
 
 ```sql
 CASE
@@ -143,7 +143,7 @@ VAR DenD  = SQRT(SUMX(mart_seller_correlation, POWER(mart_seller_correlation[ran
 RETURN DIVIDE(Num, DenR * DenD)
 ```
 
-This supports the assumption behind the risk model — that delivery quality and customer experience degrade together.
+This supports the assumption behind the risk model, that delivery quality and customer experience degrade together.
 
 ### Risk tier threshold rationale
 
@@ -182,9 +182,9 @@ Thresholds are designed to flag only clear outliers. The dual-failure condition 
 
 **13 HIGH-risk sellers should be reviewed for delisting.** Priority order by value at risk: `auto` (R$ 45,748), `watches_gifts` (R$ 25,414), `sports_leisure` (R$ 21,110). The strongest candidates are sellers who consistently perform poorly on both customer review scores and on-time delivery, as failing both measures is a much stronger indicator of ongoing performance issues than either metric on its own.
 
-**MEDIUM tier warrants more attention than HIGH.** 134 MEDIUM sellers sit inside the top 20% of the Pareto curve, holding R$ 2.45M combined — including the two highest-value sellers on the platform.
+**MEDIUM tier warrants more attention than HIGH.** 134 MEDIUM sellers sit inside the top 20% of the Pareto curve, holding R$ 2.45M combined, including the two highest-value sellers on the platform.
 
-**`auto` category needs a seller-level quality check.** 6.83% of its value flows through HIGH-risk sellers — highest of any named category.
+**`auto` category needs a seller-level quality check.** 6.83% of its value flows through HIGH-risk sellers, highest of any named category.
 
 **Late deliveries alone shouldn't automatically trigger intervention.** Some sellers have late delivery rates above 20% while still maintaining average review scores above 4.0, suggesting that customers remain satisfied despite the delays. A stronger approach is to escalate only when both delivery performance and customer ratings decline, which is also consistent with the criteria used to define the HIGH risk tier.
 
@@ -193,7 +193,7 @@ Thresholds are designed to flag only clear outliers. The dual-failure condition 
 ## Setup
 
 ```sql
--- Run in order — stg_reviews must be first
+-- Run in order: stg_reviews must be first
 \i SQL/staging/stg_reviews.sql
 \i SQL/staging/stg_orders.sql
 \i SQL/staging/stg_order_items.sql
