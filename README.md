@@ -24,7 +24,7 @@ This project builds a seller risk scoring system on top of the Olist public data
 | On-time delivery | 90% |
 | Late delivery → low reviews | strong confirmed correlation |
 
-> **Note on GMV vs. revenue:** The R$ 15.42M figure represents Gross Merchandise Value — the sum of item prices and freight paid by buyers. It does not represent Olist's platform revenue, which would require deducting seller fees and commissions (not available in this dataset). All monetary metrics in this project are GMV-based.
+> **Note on GMV vs. revenue:** The R$ 15.42M figure represents Gross Merchandise Value - the sum of item prices and freight paid by buyers. It does not represent Olist's platform revenue, which would require deducting seller fees and commissions (not available in this dataset). All monetary metrics in this project are GMV-based.
 
 ---
 
