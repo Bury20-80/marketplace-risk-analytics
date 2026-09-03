@@ -508,7 +508,6 @@ The report uses the PostgreSQL analytical views plus the one-row `spearman_resul
 
 ```text
 marketplace-risk-analytics/
-├── .gitignore
 ├── README.md
 ├── requirements.txt
 │
